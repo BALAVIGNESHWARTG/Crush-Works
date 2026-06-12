@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Grotesk:wght@300..700&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer utilities {
+  .preserve-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Base style for A4 sheets in Interactive Preview mode */
+.a4-sheet {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  background-color: #ffffff;
+  position: relative;
+}
+
+/* Specialized CSS print profile */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* Hide all interactive components, header, footer during print */
+  header,
+  footer,
+  #calculators-container,
+  #flashcards-quiz-container,
+  #notes-scratchpad,
+  .flex,
+  .bg-slate-50,
+  button,
+  input,
+  textarea {
+    display: none !important;
+  }
+  
+  /* Force A4 sheets to be visible and correctly dimensioned page-by-page */
+  .a4-sheet {
+    display: block !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    margin: 0 !important;
+    padding: 20mm !important;
+    page-break-before: always !important;
+    page-break-after: always !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    position: relative !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

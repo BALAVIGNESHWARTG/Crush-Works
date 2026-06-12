@@ -1,0 +1,6 @@
+{
+  "name": "Steniha's ML & Stats Exam Guide",
+  "description": "An interactive, print-ready A4 exam study guide on Machine learning and Data Science, adorned with romantic floral themes and helpful interactive calculators built to help Steniha ace her exams.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
